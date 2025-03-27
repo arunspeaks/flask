@@ -18,7 +18,7 @@ custom_objects = {'KerasLayer': hub.KerasLayer}
 model = tf.keras.models.load_model('models/efficientnet.h5', custom_objects=custom_objects)
 
 # Configure Gemini API
-genai.configure(api_key=)
+genai.configure(api_key="AIzaSyC_iEbzi-vaFOh-V7ycI--kwvCNPsjy2fo")
 gemini_model = genai.GenerativeModel("gemini-2.0-flash")
 
 @app.route('/', methods=['GET'])
