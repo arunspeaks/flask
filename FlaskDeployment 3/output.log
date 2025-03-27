@@ -1,0 +1,83 @@
+nohup: ignoring input
+2025-02-20 05:06:31.270833: I external/local_tsl/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2025-02-20 05:06:31.355123: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-02-20 05:06:31.355194: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-02-20 05:06:31.357347: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-02-20 05:06:31.368648: I external/local_tsl/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2025-02-20 05:06:31.369011: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-02-20 05:06:33.686827: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+ * Serving Flask app 'main'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://172.31.5.36:5002
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:07:40] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:07:40] "GET /static/style.css HTTP/1.1" 200 -
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:07:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:07:47] "POST /predict HTTP/1.1" 200 -
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 120ms/step
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:08:02] "POST /predict HTTP/1.1" 200 -
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:08:44] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:08:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:08:44] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:103.197.74.121 - - [20/Feb/2025 05:08:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+ERROR:werkzeug:64.62.156.73 - - [20/Feb/2025 06:54:55] code 400, message Bad request version ('À\x14À')
+INFO:werkzeug:64.62.156.73 - - [20/Feb/2025 06:54:55] "[35m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x80n>\x11ßíý6\x8dFV±;\x1bÛÃ\x1f/ã×\x97ÇPxpå\x02õ[\x8eÔ\x80\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:55:08] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:55:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:55:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:55:08] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:56:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:56:23] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:56:23] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:56:23] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:56:27] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:56:27] "GET /static/style.css HTTP/1.1" 200 -
+ERROR:werkzeug:152.58.197.74 - - [20/Feb/2025 06:56:44] code 400, message Bad request version ('g1*¬º\x90Å!×\x96m#ºÿ~\x8aVÖyø\x80\x06®³~}&\x9eÓh¥e\x00*êê\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À')
+INFO:werkzeug:152.58.197.74 - - [20/Feb/2025 06:56:44] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03÷i£±@\x9fÌó2\x8b\\Þí¯\x81\x84ì ÓÏ\x15~Ãj{RîÐ\x8e\x06[1 g1*¬º\x90Å!×\x96m#ºÿ~\x8aVÖyø\x80\x06®³~}&\x9eÓh¥e\x00*êê\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À[0m" HTTPStatus.BAD_REQUEST -
+INFO:werkzeug:152.59.198.80 - - [20/Feb/2025 06:57:53] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:152.59.198.80 - - [20/Feb/2025 06:57:54] "GET /static/style.css HTTP/1.1" 200 -
+INFO:werkzeug:152.59.198.80 - - [20/Feb/2025 06:57:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 212ms/step
+INFO:werkzeug:152.59.198.80 - - [20/Feb/2025 06:59:02] "POST /predict HTTP/1.1" 200 -
+INFO:werkzeug:152.59.198.80 - - [20/Feb/2025 07:00:52] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:152.59.198.80 - - [20/Feb/2025 07:00:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 103ms/step
+INFO:werkzeug:152.59.198.80 - - [20/Feb/2025 07:01:05] "POST /predict HTTP/1.1" 200 -
+INFO:werkzeug:152.59.198.128 - - [20/Feb/2025 09:31:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:152.59.198.128 - - [20/Feb/2025 09:31:17] "GET /static/style.css HTTP/1.1" 200 -
+INFO:werkzeug:152.59.198.128 - - [20/Feb/2025 09:31:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 200ms/step
+INFO:werkzeug:152.59.198.128 - - [20/Feb/2025 09:31:33] "POST /predict HTTP/1.1" 200 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:43:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:43:50] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:43:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:43:50] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:47:22] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:47:22] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:47:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:47:22] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:47:22] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:47:22] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:47:22] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:103.209.89.30 - - [20/Feb/2025 15:47:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:185.224.128.17 - - [20/Feb/2025 23:57:29] "[33mCONNECT example.com:80 HTTP/1.1[0m" 404 -
+ERROR:werkzeug:185.224.128.17 - - [20/Feb/2025 23:57:44] code 400, message Bad request syntax ('\x04\x01\x00P\x00\x00\x00\x01\x00example.com\x00')
+INFO:werkzeug:185.224.128.17 - - [20/Feb/2025 23:57:44] "[35m[1m\x04\x01\x00P\x00\x00\x00\x01\x00example.com\x00[0m" HTTPStatus.BAD_REQUEST -
+ERROR:werkzeug:185.224.128.17 - - [20/Feb/2025 23:57:44] code 400, message Bad request syntax ('\x05\x01\x00')
+INFO:werkzeug:185.224.128.17 - - [20/Feb/2025 23:57:44] "[35m[1m\x05\x01\x00[0m" HTTPStatus.BAD_REQUEST -
+ERROR:werkzeug:64.62.197.112 - - [21/Feb/2025 03:16:10] code 400, message Bad request syntax ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03½')
+INFO:werkzeug:64.62.197.112 - - [21/Feb/2025 03:16:10] "[35m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03½[0m" HTTPStatus.BAD_REQUEST -
+INFO:werkzeug:152.59.237.85 - - [21/Feb/2025 04:17:18] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:152.59.237.85 - - [21/Feb/2025 04:17:18] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:152.59.237.85 - - [21/Feb/2025 04:17:18] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:152.59.237.85 - - [21/Feb/2025 04:17:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:185.142.236.40 - - [21/Feb/2025 11:18:57] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:185.142.236.40 - - [21/Feb/2025 11:18:57] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+INFO:werkzeug:185.142.236.40 - - [21/Feb/2025 11:18:57] "[33mGET /sitemap.xml HTTP/1.1[0m" 404 -
+INFO:werkzeug:185.142.236.40 - - [21/Feb/2025 11:18:58] "[33mGET /.well-known/security.txt HTTP/1.1[0m" 404 -
+INFO:werkzeug:185.142.236.40 - - [21/Feb/2025 11:18:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

@@ -1,0 +1,107 @@
+body {
+        font-family: 'Poppins', sans-serif;
+        background: #95b7d1;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+}
+
+.container {
+        width: 450px;
+        background: #7db7e3;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+}
+
+h2 h3 {
+        color: #004e92;
+        font-size: 22px;
+        margin-bottom: 10px;
+}
+
+.upload-box {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.upload-box:hover {
+    background: #e1ecf4;
+}
+
+.upload-label {
+    color: #007bff;
+    font-weight: bold;
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+#image-preview {
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.buttons button {
+    background: #004e92;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        margin-top: 10px;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #0082c8;
+}
+
+button:first-child {
+    background-color: #007bff;
+    color: white;
+}
+
+button:last-child {
+    background-color: #dc3545;
+    color: white;
+}
+
+#loader {
+    font-size: 16px;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+#pred-result {
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* Sexy Recommendation Button */
+#recommendation-btn {
+    background: linear-gradient(45deg, #2b94e4, #074384);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 14px 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(255, 75, 43, 0.3);
+    transition: 0.3s ease-in-out;
+}
+
+#recommendation-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+}

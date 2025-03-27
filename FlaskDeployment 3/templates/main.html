@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Disease Classifier</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Eye Disease Classifier</h2>
+        <div class="upload-box" id="file-drag" onclick="document.getElementById('file-upload').click();">
+            <input type="file" id="file-upload" accept="image/*" hidden>
+            <label class="upload-label">Drop image here or click to select</label>
+            <img id="image-preview" class="hidden" />
+        </div>
+
+        <!-- Symptoms input field -->
+        <textarea id="symptoms" placeholder="Enter your symptoms here..."></textarea>
+        
+        <div class="buttons">
+            <button onclick="submitImageAndSymptoms()">Submit</button>
+            <button onclick="clearImage()">Clear</button>
+        </div>
+        
+        <div id="image-box">
+            <img id="image-display" class="hidden" />
+            <div id="pred-result" class="hidden"></div>
+            <div id="loader" class="hidden">Loading...</div>
+            <button id="recommendation-btn" class="hidden" onclick="openPopup()">Recommendation</button>
+        </div>
+    </div>
+
+    <!-- Popup for recommendations -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3>Recommendations</h3>
+            <p id="recommendation-text"></p>
+        </div>
+    </div>
+
+    <script>
+        let diseaseDetected = "";
+        let recommendationText = "";
+
+        document.getElementById("file-upload").addEventListener("change", function(event) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("image-preview").src = e.target.result;
+                    document.getElementById("image-preview").classList.remove("hidden");
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function submitImageAndSymptoms() {
+            let imageElement = document.getElementById("image-preview");
+            let symptoms = document.getElementById("symptoms").value;
+
+            if (!imageElement.src && !symptoms.trim()) {
+                alert("Please select an image or enter symptoms.");
+                return;
+            }
+
+            document.getElementById("loader").classList.remove("hidden");
+            fetch("/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ image: imageElement.src, symptoms: symptoms })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("loader").classList.add("hidden");
+
+                if (data.disease === "Normal") {
+                    document.getElementById("pred-result").innerHTML = `
+                        <h3>Prediction Result</h3>
+                        <p><strong>Status:</strong> Your eye is healthy! No disease detected. ✅</p>
+                        <p><strong>General Eye Care Tips:</strong> ${data.recommendation || "Maintain a balanced diet, stay hydrated, and take regular screen breaks."}</p>
+                    `;
+                    document.getElementById("recommendation-btn").classList.add("hidden");
+                } else {
+                    document.getElementById("pred-result").innerHTML = `
+                        <h3>Prediction Result</h3>
+                        <p><strong>Disease:</strong> ${data.disease}</p>
+                        <p><strong>Medical Advice:</strong> Consider consulting an ophthalmologist for further evaluation.</p>
+                    `;
+
+                    diseaseDetected = data.disease;
+                    recommendationText = data.recommendation;
+
+                    document.getElementById("recommendation-btn").classList.remove("hidden");
+                }
+
+                document.getElementById("pred-result").classList.remove("hidden");
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while processing the image and symptoms.");
+            });
+        }
+
+        function openPopup() {
+            if (!recommendationText.trim()) {
+                alert("No recommendations available.");
+                return;
+            }
+
+            // Format text into proper bullet points
+            let formattedText = recommendationText
+                .replace(/\*/g, "")  // Remove asterisks
+                .replace(/\n/g, "<br>")  // Convert new lines to HTML line breaks
+                .replace(/- (.*?)\s*(?=<br>|$)/g, "<li>$1</li>"); // Convert dashes into list items
+
+            document.getElementById("recommendation-text").innerHTML = `<ul>${formattedText}</ul>`;
+            document.getElementById("popup").classList.remove("hidden");
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").classList.add("hidden");
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function clearImage() {
+            document.getElementById("file-upload").value = "";
+            document.getElementById("image-preview").src = "";
+            document.getElementById("image-preview").classList.add("hidden");
+            document.getElementById("symptoms").value = "";
+            document.getElementById("pred-result").innerHTML = "";
+            document.getElementById("pred-result").classList.add("hidden");
+            document.getElementById("recommendation-btn").classList.add("hidden");
+            document.getElementById("popup").classList.add("hidden");
+        }
+    </script>
+
+    <style>
+        #symptoms {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Popup Styling */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(151, 188, 217);
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            display: none;
+            width: 600px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .popup .popup-content {
+            position: relative;
+            padding: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .popup ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 10px;
+        }
+
+        .popup ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #333;
+        }
+    </style>
+</body>
+</html>
